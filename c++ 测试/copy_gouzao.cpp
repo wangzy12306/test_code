@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include <string.h>
-#include "a.h"
 #include <iostream>
+//拷贝构造函数主要是为了把一个新类 = 一个旧类,类中会默认有一个拷贝构造函数
+//但需要申请空间时,必须有这样一个函数,等于时为新类中变量申请并赋值
 using namespace std;
 class line
 {
@@ -26,11 +26,13 @@ class line
 		};
 		void display()
 		{
-			printf("line %s\n",mine);
+			//printf("line %s\n",mine);
+			cout << "line " << mine << endl;
 		};
 		void display1()
 		{
-			printf("line %s\n",ganrao);
+			//printf("line %s\n",ganrao);
+			cout << "line " << ganrao << endl;
 		}; 
 		
 	private:
@@ -42,27 +44,9 @@ int main()
 {
 	line ff("wwww");
 	line gg = ff;
-	gg.display1(); //乱码,因为拷贝构造函数并未调用第一个构造函数
+	ff.display();	//正常打印
+	gg.display();	//正常打印
+	ff.display1();	//正常打印,已对ganrao变量赋值
+	gg.display1();	//乱码,因为拷贝构造函数并未调用第一个构造函数
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
